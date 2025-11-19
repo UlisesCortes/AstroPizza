@@ -1,0 +1,29 @@
+---
+// ZONA DE JAVASCRIPT (Server-side al compilar)
+// Definimos las "Props" (como @api en LWC)
+const { nombre, precio, ingredientes, imagen } = Astro.props;
+---
+
+<div class="card">
+    <img src={imagen} alt={nombre} />
+    <div class="info">
+        <h3>{nombre}</h3>
+        <p class="ingredientes">{ingredientes}</p>
+        <span class="precio">${precio}</span>
+        <button>Pedir por WhatsApp</button>
+    </div>
+</div>
+
+<style>
+    .card {
+        border: 1px solid #eee;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        font-family: sans-serif;
+    }
+    .info { padding: 1rem; }
+    h3 { margin: 0; color: #333; }
+    .precio { font-weight: bold; color: #e63946; font-size: 1.2rem; }
+    /* Estos estilos NO afectarán a otros componentes. Magia. */
+</style>
