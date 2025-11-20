@@ -1,46 +1,24 @@
 ---
-import PizzaCard from '../components/PizzaCard.astro';
+// 1. Importa el Layout que acabas de crear
+import MainLayout from '../layouts/MainLayout.astro';
+// (Si usaste el código de la pizzería, mantén la importación de PizzaCard aquí)
+// import PizzaCard from '../components/PizzaCard.astro'; 
 
-// Simulamos una base de datos (JSON) para no tener backend real
 const pizzas = [
-  { nombre: "Hawaiana", precio: 150, ingredientes: "Piña, Jamón, Queso", img: "/img/hawaiana.jpg" },
-  { nombre: "Pepperoni", precio: 140, ingredientes: "Pepperoni, Queso", img: "/img/pepperoni.jpg" }
+  // ... tu array de pizzas
 ];
 ---
 
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Pizzería Luigi - Las mejores de la ciudad</title>
-</head>
-<body>
-    <header>
-        <h1>🍕 Pizzería Luigi</h1>
-    </header>
+<MainLayout title="Pizzería Luigi Bros">
 
-    <main>
-        <h2>Nuestro Menú</h2>
-        <div class="grid-pizzas">
-            {pizzas.map((pizza) => (
-                <PizzaCard 
-                    nombre={pizza.nombre} 
-                    precio={pizza.precio} 
-                    ingredientes={pizza.ingredientes}
-                    imagen={pizza.img}
-                />
-            ))}
-        </div>
-    </main>
-</body>
-</html>
+    <h1 class="text-3xl font-bold mb-6">🍕 Bienvenido a Pizzería Luigi</h1>
 
-<style>
-    body { margin: 0; font-family: system-ui, sans-serif; }
-    header { background: #222; color: white; padding: 1rem; text-align: center; }
-    main { max-width: 800px; margin: 0 auto; padding: 20px; }
-    .grid-pizzas {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 20px;
-    }
-</style>
+    <p class="mb-8">Las mejores pizzas de la zona, hechas con la tradición de la familia.</p>
+
+    <h2>Nuestro Menú</h2>
+    
+    <div class="grid grid-cols-2 gap-4 mt-4">
+        {/* Aquí va el mapeo de PizzaCard */}
+    </div>
+
+</MainLayout>
